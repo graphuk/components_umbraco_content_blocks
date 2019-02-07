@@ -1,0 +1,10 @@
+@using Skybrud.Umbraco.GridData
+@using Skybrud.Umbraco.GridData.Extensions
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<GridDataModel>
+
+@foreach (var section in Model.Sections) {
+	
+	foreach (var row in section.Rows) {
+		@Html.RenderGridRowOrFallback(row, $"~/App_Plugins/{row.Name}/Views/GridRow.cshtml")
+	}
+}
