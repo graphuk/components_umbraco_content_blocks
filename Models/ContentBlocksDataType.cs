@@ -2,6 +2,8 @@ using Umbraco.Core.Models;
 using System.Collections.Generic;
 using NicBell.UCreate.Interfaces;
 using NicBell.UCreate.Attributes;
+using UmbracoGridConfigLoader;
+using UmbracoGridConfigLoader.Models;
 
 namespace Graph.Components.ContentBlocks
 {
@@ -10,7 +12,7 @@ namespace Graph.Components.ContentBlocks
 	{
 		public IDictionary<string, PreValue> PreValues => new Dictionary<string, PreValue>
 		{
-			{"items", new PreValue(new GridSettingsLoader().GetSettings())},
+			{"items", new PreValue(new GridConfigLoader().GetSettings<ContentBlocksDataType, IGridConfigLoader>())},
 			{"rte", new PreValue(ContentBlocksRteConfigs)},
 		};
 
