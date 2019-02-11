@@ -2,6 +2,7 @@
 Content blocks for Umbraco Grid
 
 Dependencies:
+* UmbracoGridConfigLoader - https://github.com/graphuk/umbraco_grid_config_loader/ (install via nuget)
 * Skybrud.Umbraco.GridData - https://github.com/skybrud/Skybrud.Umbraco.GridData (install via nuget)
 * UCreate - https://github.com/nicbell/ucreate (install via nuget)
 
