@@ -1,13 +1,13 @@
 # components_umbraco_content_blocks
 Content blocks for Umbraco Grid
 
-Dependencies:
-* UmbracoGridConfigLoader - https://github.com/graphuk/umbraco_grid_config_loader/ (install via nuget)
-* Skybrud.Umbraco.GridData - https://github.com/skybrud/Skybrud.Umbraco.GridData (install via nuget)
-* UCreate - https://github.com/nicbell/ucreate (install via nuget)
+Nuget:
+* Install-Package UmbracoGridConfigLoader
+* Install-Package Skybrud.Umbraco.GridData
+* Install-Package UCreate
 
 Installation steps:
-1. Install all dependencies
+1. Install Nuget packages
 2. Copy all files to the folder 'ContentBlocks' to ~\App_Plugins\
 3. Umbraco will create the data type on startup application
 4. Add to Umbraco document type:
