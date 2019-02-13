@@ -8,22 +8,40 @@ Dependencies:
 
 Installation steps:
 1. Install all dependencies
-3. Copy all files to the folder 'ContentBlocks' to ~\App_Plugins\
-5. Umbraco will create the data type on startup application
-
-Example of usages:
+2. Copy all files to the folder 'ContentBlocks' to ~\App_Plugins\
+3. Umbraco will create the data type on startup application
+4. Add to Umbraco document type:
 ```c#
-
-Comming soon...
-
+[DocType(Name = "Content Composition")]
+public class ContentComposition
+{
+	[Property(TypeName = "Content Blocks", Name = "Content Blocks", TabName = "Content", Alias = "contentBlocks")]
+	public string ContentBlocks { get; set; }
+}
 ```
-
-Model:
+You can inferit the home page from this composition
 ```c#
-public GridDataModel ContentBlocks { get; set; } 
+[DocType(Name = "Home Page", AllowedAsRoot = true, Icon = "icon-home",
+		AllowedChildTypes = new []
+		{
+			...
+		},
+		CompositionTypes = new []
+		{
+			typeof(ContentComposition),
+		})]
+public class HomePage
+{
+}
 ```
-
-View:
+5. Add property to he Home page View Model:
+```c#
+public class HomePageModel
+{
+	public GridDataModel ContentBlocks { get; set; }
+} 
+```
+6. Add Partial to the Home page view:
 ```c#
 @Html.Partial("~/App_Plugins/ContentBlocks/Views/GridLayout.cshtml", Model.ContentBlocks)
 ```
